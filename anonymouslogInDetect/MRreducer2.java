@@ -1,4 +1,3 @@
-package Lab1;
 
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.io.Text;
@@ -14,13 +13,8 @@ import java.util.Scanner;
 public class MRreducer2  extends Reducer <Text,Text,Text,DoubleWritable> {
    public void reduce(Text key, Iterable<Text> values, Context context) 
 		   throws IOException, InterruptedException {
-	// TODO: parse out (key, values) (based on hint of cleverness mapper)
 	   double num =0;
 	   double total=0;
-	   // find num elements and total fail time
-	   // get sigma
-	   // get each Z value
-	   
 	   Iterator in = values.iterator(); 
 	   String result = "";
 	   while(in.hasNext()) {
@@ -29,12 +23,10 @@ public class MRreducer2  extends Reducer <Text,Text,Text,DoubleWritable> {
 		   num++;
 		   result += single[0] + "_" + single[1] + "\n";
 	   }
-	      
-	// TODO: calculate mean_failed_login_attempts and write to context
+
 	   double mean = total/num;
 	   context.write(new Text("mean_failed_login_attempts:"), new DoubleWritable (mean));
 	   
-	// TODO: calculate sigma_failed_login_attempts and write to context
 	   double sigma = 0;   
 	   Scanner in2 = new Scanner(result);
 	   while(in2.hasNextLine()) {
@@ -44,7 +36,6 @@ public class MRreducer2  extends Reducer <Text,Text,Text,DoubleWritable> {
 	   sigma = Math.sqrt(sigma/num);
 	   context.write(new Text("sigma_failed_login_attempts:"),new DoubleWritable(sigma) );
 	   
-	// TODO: calculate num_sigmas_for:<user> and write to context
 	   Scanner in3 = new Scanner(result);
 	   while(in3.hasNextLine()) {
 		   String[] single = in3.nextLine().split("_");

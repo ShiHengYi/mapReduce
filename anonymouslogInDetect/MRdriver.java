@@ -1,4 +1,4 @@
-package Lab1; 
+
 
 import org.apache.hadoop.conf.Configured;
 import java.io.BufferedReader;
@@ -18,28 +18,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 
 public class MRdriver extends Configured implements Tool {
-
-   public int run(String[] args) throws Exception {
-
-      // TODO: configure first MR job 
-
-      // TODO: setup input and output paths for first MR job
-
-      // TODO: run first MR job syncronously with verbose output set to true
-
-      // TODO: configure the second MR job 
-
-      // TODO: setup input and output paths for second MR job
-
-      // TODO: run second MR job syncronously with verbose output set to true
-      
-      // TODO: detect anomaly based on sigma_threshold provided by user
-
-      // TODO: for each user with score higher than threshold, print to screen:
-
-      // detected anomaly for user: <username>  with score: <numSigmas>
-	
-	   
 	   
 	    Job job = Job.getInstance(getConf(), "job1");
 	    

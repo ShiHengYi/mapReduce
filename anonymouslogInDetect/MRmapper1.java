@@ -1,4 +1,3 @@
-package Lab1;
 
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.io.Text;
